@@ -1,6 +1,6 @@
 ﻿using CrazyBook.DataAccess.Repository.IRepository;
 using CrazyBook.Models;
-using CrazyBook.Models.ViewModels;
+using CrazyBookWeb.ViewModels;
 using CrazyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,6 @@ using System.Security.Claims;
 namespace CrazyBookWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
     public class OrderController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

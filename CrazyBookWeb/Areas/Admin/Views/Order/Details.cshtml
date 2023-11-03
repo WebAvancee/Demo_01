@@ -1,4 +1,4 @@
-﻿@model CrazyBook.Models.ViewModels.OrderVM
+﻿@model CrazyBookWeb.ViewModels.OrderVM
 @using CrazyBook.Utility
 
 <form method="post">
@@ -267,7 +267,7 @@
 
 
 @section Scripts{
-    <partial name="_ValidationScriptsPartial" />
+	<partial name="_ValidationScriptsPartial" />
 <script>
 	function validateInput(){
 		if(document.getElementById("trackingNumber").value==""){

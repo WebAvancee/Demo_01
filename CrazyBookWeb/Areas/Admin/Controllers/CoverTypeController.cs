@@ -9,7 +9,6 @@ using System.Linq;
 
 namespace CrazyBookWeb.Controllers;
 [Area("Admin")]
-[Authorize(Roles = SD.Role_Admin)]
 public class CoverTypeController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;

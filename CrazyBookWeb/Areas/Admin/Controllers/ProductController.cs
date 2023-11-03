@@ -1,7 +1,7 @@
 ﻿using CrazyBook.DataAccess;
 using CrazyBook.DataAccess.Repository.IRepository;
 using CrazyBook.Models;
-using CrazyBook.Models.ViewModels;
+using CrazyBookWeb.ViewModels;
 using CrazyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +15,6 @@ using System.Linq;
 
 namespace CrazyBookWeb.Controllers;
 [Area("Admin")]
-[Authorize(Roles = SD.Role_Admin)]
 public class ProductController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -36,20 +35,31 @@ public class ProductController : Controller
     //GET
     public IActionResult Upsert(int? id)
     {
+        #region Version listes manuelles
+        //ProductVM productVM = new()
+        //{
+        //    Product = new(),
+        //    CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
+        //    {
+        //        Text = i.Name,
+        //        Value = i.Id.ToString()
+        //    }).OrderBy(c => c.Text),
+        //    CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+        //    {
+        //        Text = i.Name,
+        //        Value = i.Id.ToString()
+        //    }).OrderBy(c => c.Text),
+        //};
+        #endregion
+
+        #region Version listes repository
         ProductVM productVM = new()
         {
             Product = new(),
-            CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Id.ToString()
-            }),
-            CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Id.ToString()
-            }),
+            CategoryList = _unitOfWork.Category.ListCategoriesDisponible(),
+            CoverTypeList = _unitOfWork.CoverType.ListAllCoverTypes(),
         };
+        #endregion
 
         if (id == null || id == 0)
         {

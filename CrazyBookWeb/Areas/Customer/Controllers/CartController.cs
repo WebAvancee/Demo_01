@@ -1,6 +1,6 @@
 ﻿using CrazyBook.DataAccess.Repository.IRepository;
 using CrazyBook.Models;
-using CrazyBook.Models.ViewModels;
+using CrazyBookWeb.ViewModels;
 using CrazyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

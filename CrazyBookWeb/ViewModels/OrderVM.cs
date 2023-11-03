@@ -1,15 +1,15 @@
-﻿using System;
+﻿using CrazyBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrazyBook.Models.ViewModels
+namespace CrazyBookWeb.ViewModels
 {
-    public class ShoppingCartVM
+    public class OrderVM
     {
-        public IEnumerable<ShoppingCart> ListCart { get; set; }
-       
         public OrderHeader OrderHeader { get; set; }
+        public IEnumerable<OrderDetail> OrderDetail { get; set; }
     }
 }

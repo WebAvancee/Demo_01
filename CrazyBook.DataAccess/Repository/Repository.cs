@@ -75,7 +75,7 @@ namespace CrazyBook.DataAccess.Repository
             
         }
 
-        public void Remove(T entity)
+        public virtual void Remove(T entity)
         {
             dbSet.Remove(entity);
         }
